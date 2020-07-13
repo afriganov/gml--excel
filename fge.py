@@ -8,429 +8,82 @@ root = tk.Tk()
 root.withdraw()
 file_path = filedialog.askdirectory()
 
-#ove špagete treba u klase 
-
-treea = etree.parse(file_path+"/NACINI_UPORABE.gml")
-treeb = etree.parse(file_path+"/CESTICE.gml")
-treec = etree.parse(file_path+"/POSJEDOVNI_LISTOVI.gml")
-treed = etree.parse(file_path+"/UPISANE_OSOBE.gml")
-treee = etree.parse(file_path+"/CESTICE_ZGRADE.gml")
-treef = etree.parse(file_path+"/ZGRADE.gml")
-treeg= etree.parse(file_path+"/ADRESE_UPISANIH_OSOBA.gml")
-
-treeazk = etree.parse(file_path+"/ZK_CESTICE.gml")
-treebzk = etree.parse(file_path+"/ULOSCI.gml")
-treeczk = etree.parse(file_path+"/ZK_NACINI_UPORABE.gml")
-treezzk = etree.parse(file_path+"/ZK_ADRESE_CESTICE.gml")
-treedzk = etree.parse(file_path+"/ZK_VLASNICI.gml")
-treeezk = etree.parse(file_path+"/ZK_ADRESE_VLASNIKA.gml")
-treeaz = etree.parse(file_path+"/ADRESE_ZGRADE.gml")
-treeax = etree.parse(file_path+"/ZK_ZGRADE.gml")
-
-rootazk = treeazk.getroot()
-rootbzk = treebzk.getroot()
-rootczk = treeczk.getroot()
-rootdzk = treedzk.getroot()
-rootezk = treeezk.getroot()
-rootzzk = treezzk.getroot()
-rootaz = treeaz.getroot()
-rootax = treeax.getroot()
-
-roota = treea.getroot()
-rootb = treeb.getroot()
-rootc = treec.getroot()
-rootd = treed.getroot()
-roote = treee.getroot()
-rootf = treef.getroot()
-rootg = treeg.getroot()
-
-lista_posjedovni_list_broj_nacini_uporabe = []
-for POSJEDOVNI_LIST_BROJ in roota.iter("{http://www.uredjenazemlja.hr}POSJEDOVNI_LIST_BROJ"):
-    lista_posjedovni_list_broj_nacini_uporabe.append(POSJEDOVNI_LIST_BROJ.text)
-
-lista_povrsina_nacini_uporabe = []
-for POVRSINA in roota.iter("{http://www.uredjenazemlja.hr}POVRSINA"):
-    lista_povrsina_nacini_uporabe.append(POVRSINA.text)
-
-lista_cestica_id_nacini_uporabe = []
-for CESTICA_ID in roota.iter("{http://www.uredjenazemlja.hr}CESTICA_ID"):
-    lista_cestica_id_nacini_uporabe.append(CESTICA_ID.text)
-
-lista_naziv_vrste_uporabe_nacini_uporabe = []
-for NAZIV_VRSTE_UPORABE in roota.iter("{http://www.uredjenazemlja.hr}NAZIV_VRSTE_UPORABE"):
-    lista_naziv_vrste_uporabe_nacini_uporabe.append(NAZIV_VRSTE_UPORABE.text)
-
-lista_cestica_id_cestice = []
-for CESTICA_ID in rootb.iter("{http://www.uredjenazemlja.hr}CESTICA_ID"):
-    lista_cestica_id_cestice.append(CESTICA_ID.text)
-
-lista_broj_cestice_cestice = []
-for BROJ_CESTICE in rootb.iter("{http://www.uredjenazemlja.hr}BROJ_CESTICE"):
-    lista_broj_cestice_cestice.append(BROJ_CESTICE.text)
-
-lista_povrsina_graficka_cestice = []
-for POVRSINA_GRAFICKA in rootb.iter("{http://www.uredjenazemlja.hr}POVRSINA_GRAFICKA"):
-    lista_povrsina_graficka_cestice.append(POVRSINA_GRAFICKA.text)
-
-lista_povrsina_atributna_cestice = []
-for POVRSINA_ATRIBUTNA in rootb.iter("{http://www.uredjenazemlja.hr}POVRSINA_ATRIBUTNA"):
-    lista_povrsina_atributna_cestice.append(POVRSINA_ATRIBUTNA.text)
-
-lista_adresa_opisna_cestice = []
-for ADRESA_OPISNA in rootb.iter("{http://www.uredjenazemlja.hr}ADRESA_OPISNA"):
-    lista_adresa_opisna_cestice.append(ADRESA_OPISNA.text)
-
-lista_posjedovni_list_id_posjedovni_listovi = []
-for POSJEDOVNI_LIST_ID in rootc.iter("{http://www.uredjenazemlja.hr}POSJEDOVNI_LIST_ID"):
-    lista_posjedovni_list_id_posjedovni_listovi.append(POSJEDOVNI_LIST_ID.text)
-
-lista_broj_posjedovni_listovi = []
-for BROJ in rootc.iter("{http://www.uredjenazemlja.hr}BROJ"):
-    lista_broj_posjedovni_listovi.append(BROJ.text)
-
-lista_posjednik_id_upisane_osobe = []
-for POSJEDNIK_ID in rootd.iter("{http://www.uredjenazemlja.hr}POSJEDNIK_ID"):
-    lista_posjednik_id_upisane_osobe.append(POSJEDNIK_ID.text)
-
-lista_posjedovni_list_id_upisane_osobe = []
-for POSJEDOVNI_LIST_ID in rootd.iter("{http://www.uredjenazemlja.hr}POSJEDOVNI_LIST_ID"):
-    lista_posjednik_id_upisane_osobe.append(POSJEDOVNI_LIST_ID.text)
-
-lista_posjednik_id_upisane_osobe = []
-for POSJEDNIK_ID in rootd.iter("{http://www.uredjenazemlja.hr}POSJEDNIK_ID"):
-    lista_posjednik_id_upisane_osobe.append(POSJEDNIK_ID.text)
-
-lista_posjedovni_list_id_upisane_osobe = []
-for POSJEDOVNI_LIST_ID in rootd.iter("{http://www.uredjenazemlja.hr}POSJEDOVNI_LIST_ID"):
-    lista_posjedovni_list_id_upisane_osobe.append(POSJEDOVNI_LIST_ID.text)
-
-lista_posjednik_udio_brojnik_upisane_osobe = []
-for POSJEDNIK_UDIO_BROJNIK in rootd.iter("{http://www.uredjenazemlja.hr}POSJEDNIK_UDIO_BROJNIK"):
-    lista_posjednik_udio_brojnik_upisane_osobe.append(POSJEDNIK_UDIO_BROJNIK.text)
-
-lista_posjednik_udio_nazivnik_upisane_osobe = []
-for POSJEDNIK_UDIO_NAZIVNIK in rootd.iter("{http://www.uredjenazemlja.hr}POSJEDNIK_UDIO_NAZIVNIK"):
-    lista_posjednik_udio_nazivnik_upisane_osobe.append(POSJEDNIK_UDIO_NAZIVNIK.text)
-
-lista_naziv_upisane_osobe = []
-for NAZIV in rootd.iter("{http://www.uredjenazemlja.hr}NAZIV"):
-    lista_naziv_upisane_osobe.append(NAZIV.text)
-
-lista_naziv_pravnog_odnosa_upisane_osobe = []
-for NAZIV_PRAVNOG_ODNOSA in rootd.iter("{http://www.uredjenazemlja.hr}NAZIV_PRAVNOG_ODNOSA"):
-    lista_naziv_pravnog_odnosa_upisane_osobe.append(NAZIV_PRAVNOG_ODNOSA.text)
-
-lista_porezni_broj_upisane_osobe = []
-for POREZNI_BROJ in rootd.iter("{http://www.uredjenazemlja.hr}POREZNI_BROJ"):
-    lista_porezni_broj_upisane_osobe.append(POREZNI_BROJ.text)
-
-lista_cestica_id_cestice_zgrade = []
-for CESTICA_ID in roote.iter("{http://www.uredjenazemlja.hr}CESTICA_ID"):
-    lista_cestica_id_cestice_zgrade.append(CESTICA_ID.text)
-
-lista_zgrada_id_cestice_zgrade = []
-for ZGRADA_ID in roote.iter("{http://www.uredjenazemlja.hr}ZGRADA_ID"):
-    lista_zgrada_id_cestice_zgrade.append(ZGRADA_ID.text)
-
-lista_zgrada_id_zgrade = []
-for ZGRADA_ID in rootf.iter("{http://www.uredjenazemlja.hr}ZGRADA_ID"):
-    lista_zgrada_id_zgrade.append(ZGRADA_ID.text)
-
-lista_povrsina_zgrade = []
-for POVRSINA in rootf.iter("{http://www.uredjenazemlja.hr}POVRSINA"):
-    lista_povrsina_zgrade.append(POVRSINA.text)
-
-lista_naziv_vrste_zgrade_zgrade = []
-for NAZIV_VRSTE_ZGRADE in rootf.iter("{http://www.uredjenazemlja.hr}NAZIV_VRSTE_ZGRADE"):
-    lista_naziv_vrste_zgrade_zgrade.append(NAZIV_VRSTE_ZGRADE.text)
-
-lista_posjedovni_list_broj_zgrade = []
-for POSJEDOVNI_LIST_BROJ in rootf.iter("{http://www.uredjenazemlja.hr}POSJEDOVNI_LIST_BROJ"):
-    lista_posjedovni_list_broj_zgrade.append(POSJEDOVNI_LIST_BROJ.text)
-
-lista_zk_cestica_id_zk_cestice = []
-for ZK_CESTICA_ID in rootazk.iter("{http://www.uredjenazemlja.hr}ZK_CESTICA_ID"):
-    lista_zk_cestica_id_zk_cestice.append(ZK_CESTICA_ID.text)
-
-lista_broj_cestice_zk_cestice = []
-for BROJ_CESTICE in rootazk.iter("{http://www.uredjenazemlja.hr}BROJ_CESTICE"):
-    lista_broj_cestice_zk_cestice.append(BROJ_CESTICE.text)
-
-lista_podbroj_cestice_zk_cestice = []
-for PODBROJ_CESTICE in rootazk.iter("{http://www.uredjenazemlja.hr}PODBROJ_CESTICE"):
-    lista_podbroj_cestice_zk_cestice.append(PODBROJ_CESTICE.text)
-
-lista_ulozak_id_zk_cestice = []
-for ULOZAK_ID in rootazk.iter("{http://www.uredjenazemlja.hr}ULOZAK_ID"):
-    lista_ulozak_id_zk_cestice.append(ULOZAK_ID.text)
-
-lista_povrsina_zk_cestice = []
-for POVRSINA in rootazk.iter("{http://www.uredjenazemlja.hr}POVRSINA"):
-    lista_povrsina_zk_cestice.append(POVRSINA.text)
-
-lista_rbr_zk_tijela_zk_cestice = []
-for RBR_ZK_TIJELA in rootazk.iter("{http://www.uredjenazemlja.hr}RBR_ZK_TIJELA"):
-    lista_rbr_zk_tijela_zk_cestice.append(RBR_ZK_TIJELA.text)
-
-lista_ulozak_id_ulosci = []
-for ULOZAK_ID in rootbzk.iter("{http://www.uredjenazemlja.hr}ULOZAK_ID"):
-    lista_ulozak_id_ulosci.append(ULOZAK_ID.text)
-
-lista_broj_uloska_ulosci = []
-for BROJ_ULOSKA in rootbzk.iter("{http://www.uredjenazemlja.hr}BROJ_ULOSKA"):
-    lista_broj_uloska_ulosci.append(BROJ_ULOSKA.text)
-
-lista_zk_cestica_id_zk_nacini_uporabe = []
-for ZK_CESTICA_ID in rootczk.iter("{http://www.uredjenazemlja.hr}ZK_CESTICA_ID"):
-    lista_zk_cestica_id_zk_nacini_uporabe.append(ZK_CESTICA_ID.text)
-
-lista_zk_naziv_vrste_uporabe_zk_nacini_uporabe = []
-for NAZIV_VRSTE_UPORABE in rootczk.iter("{http://www.uredjenazemlja.hr}NAZIV_VRSTE_UPORABE"):
-    lista_zk_naziv_vrste_uporabe_zk_nacini_uporabe.append(NAZIV_VRSTE_UPORABE.text)
-
-lista_zk_povrsina_zk_nacini_uporabe = []
-for POVRSINA in rootczk.iter("{http://www.uredjenazemlja.hr}POVRSINA"):
-    lista_zk_povrsina_zk_nacini_uporabe.append(POVRSINA.text)
-
-lista_adresa_opisna_zk_adrese_cestice = []
-for ADRESA_OPISNA in rootzzk.iter("{http://www.uredjenazemlja.hr}ADRESA_OPISNA"):
-    lista_adresa_opisna_zk_adrese_cestice.append(ADRESA_OPISNA.text)
-
-lista_zk_cestica_id_zk_adrese_cestice = []
-for ZK_CESTICA_ID in rootzzk.iter("{http://www.uredjenazemlja.hr}ZK_CESTICA_ID"):
-    lista_zk_cestica_id_zk_adrese_cestice.append(ZK_CESTICA_ID.text)
-
-lista_ulozak_id_zk_vlasnici = []
-for ULOZAK_ID in rootdzk.iter("{http://www.uredjenazemlja.hr}ULOZAK_ID"):
-    lista_ulozak_id_zk_vlasnici.append(ULOZAK_ID.text)
-
-lista_osoba_upisa_id_zk_vlasnici = []
-for OSOBA_UPISA_ID in rootdzk.iter("{http://www.uredjenazemlja.hr}OSOBA_UPISA_ID"):
-    lista_osoba_upisa_id_zk_vlasnici.append(OSOBA_UPISA_ID.text)
-
-lista_udio_dijela_brojnik_zk_vlasnici = []
-for UDIO_DIJELA_BROJNIK in rootdzk.iter("{http://www.uredjenazemlja.hr}UDIO_DIJELA_BROJNIK"):
-    lista_udio_dijela_brojnik_zk_vlasnici.append(UDIO_DIJELA_BROJNIK.text)
-
-lista_udio_dijela_nazivnik_zk_vlasnici = []
-for UDIO_DIJELA_NAZIVNIK in rootdzk.iter("{http://www.uredjenazemlja.hr}UDIO_DIJELA_NAZIVNIK"):
-    lista_udio_dijela_nazivnik_zk_vlasnici.append(UDIO_DIJELA_NAZIVNIK.text)
-
-lista_naziv_zk_vlasnici = []
-for NAZIV in rootdzk.iter("{http://www.uredjenazemlja.hr}NAZIV"):
-    lista_naziv_zk_vlasnici.append(NAZIV.text)
-
-lista_ulozak_id_zk_vlasnici = []
-for ULOZAK_ID in rootdzk.iter("{http://www.uredjenazemlja.hr}ULOZAK_ID"):
-    lista_ulozak_id_zk_vlasnici.append(ULOZAK_ID.text)
-
-lista_porezni_broj_zk_vlasnici = []
-for POREZNI_BROJ in rootdzk.iter("{http://www.uredjenazemlja.hr}POREZNI_BROJ"):
-    lista_porezni_broj_zk_vlasnici.append(POREZNI_BROJ.text)
-
-lista_udio_brojnik_zk_vlasnici = []
-for UDIO_BROJNIK in rootdzk.iter("{http://www.uredjenazemlja.hr}UDIO_BROJNIK"):
-    lista_udio_brojnik_zk_vlasnici.append(UDIO_BROJNIK.text)
-
-lista_udio_nazivnik_zk_vlasnici = []
-for UDIO_NAZIVNIK in rootdzk.iter("{http://www.uredjenazemlja.hr}UDIO_NAZIVNIK"):
-    lista_udio_nazivnik_zk_vlasnici.append(UDIO_NAZIVNIK.text)
-
-lista_rbr_etaze_zk_vlasnici = []
-for RBR_ETAZE in rootdzk.iter("{http://www.uredjenazemlja.hr}RBR_ETAZE"):
-    lista_rbr_etaze_zk_vlasnici.append(RBR_ETAZE.text)
-
-lista_rbr_zk_tijela_zk_vlasnici = []
-for RBR_ZK_TIJELA in rootdzk.iter("{http://www.uredjenazemlja.hr}RBR_ZK_TIJELA"):
-    lista_rbr_zk_tijela_zk_vlasnici.append(RBR_ZK_TIJELA.text)
-
-lista_posjednik_id_adrese_upisanih_osoba = []
-for POSJEDNIK_ID in rootg.iter("{http://www.uredjenazemlja.hr}POSJEDNIK_ID"):
-    lista_posjednik_id_adrese_upisanih_osoba.append(POSJEDNIK_ID.text)
-
-lista_drzava_adrese_upisanih_osoba = []
-for DRZAVA in rootg.iter("{http://www.uredjenazemlja.hr}DRZAVA"):
-    lista_drzava_adrese_upisanih_osoba.append(DRZAVA.text)
-
-lista_adresa_opisna_adrese_upisanih_osoba = []
-for ADRESA_OPISNA in rootg.iter("{http://www.uredjenazemlja.hr}ADRESA_OPISNA"):
-    lista_adresa_opisna_adrese_upisanih_osoba.append(ADRESA_OPISNA.text)
-
-lista_postanski_broj_adrese_upisanih_osoba = []
-for POSTANSKI_BROJ in rootg.iter("{http://www.uredjenazemlja.hr}POSTANSKI_BROJ"):
-    lista_postanski_broj_adrese_upisanih_osoba.append(POSTANSKI_BROJ.text)
-
-lista_naselje_adrese_upisanih_osoba = []
-for NASELJE in rootg.iter("{http://www.uredjenazemlja.hr}NASELJE"):
-    lista_naselje_adrese_upisanih_osoba.append(NASELJE.text)
-
-lista_ulica_adrese_upisanih_osoba = []
-for ULICA in rootg.iter("{http://www.uredjenazemlja.hr}ULICA"):
-    lista_ulica_adrese_upisanih_osoba.append(ULICA.text)
-
-lista_kbr_adrese_upisanih_osoba = []
-for KBR in rootg.iter("{http://www.uredjenazemlja.hr}KBR"):
-    lista_kbr_adrese_upisanih_osoba.append(KBR.text)
-
-lista_osoba_upisa_id_zk_adrese_vlasnika = []
-for OSOBA_UPISA_ID in rootezk.iter("{http://www.uredjenazemlja.hr}OSOBA_UPISA_ID"):
-    lista_osoba_upisa_id_zk_adrese_vlasnika.append(OSOBA_UPISA_ID.text)
-
-lista_adresa_opisna_zk_adrese_vlasnika = []
-for ADRESA_OPISNA in rootezk.iter("{http://www.uredjenazemlja.hr}ADRESA_OPISNA"):
-    lista_adresa_opisna_zk_adrese_vlasnika.append(ADRESA_OPISNA.text)
-
-lista_zgrada_id_adrese_zgrade = []
-for ZGRADA_ID in rootaz.iter("{http://www.uredjenazemlja.hr}ZGRADA_ID"):
-    lista_zgrada_id_adrese_zgrade.append(ZGRADA_ID.text)
-
-lista_adresa_opisna_adrese_zgrade = []
-for ADRESA_OPISNA in rootaz.iter("{http://www.uredjenazemlja.hr}ADRESA_OPISNA"):
-    lista_adresa_opisna_adrese_zgrade.append(ADRESA_OPISNA.text)
-
-lista_povrsina_zk_zgrade = []
-for POVRSINA in rootax.iter("{http://www.uredjenazemlja.hr}POVRSINA"):
-    lista_povrsina_zk_zgrade.append(POVRSINA.text)
-
-lista_zk_cestica_id_zk_zgrade = []
-for ZK_CESTICA_ID in rootax.iter("{http://www.uredjenazemlja.hr}ZK_CESTICA_ID"):
-    lista_zk_cestica_id_zk_zgrade.append(ZK_CESTICA_ID.text)
-
-lista_naziv_vrste_zgrade_zk_zgrade = []
-for NAZIV_VRSTE_ZGRADE in rootax.iter("{http://www.uredjenazemlja.hr}NAZIV_VRSTE_ZGRADE"):
-    lista_naziv_vrste_zgrade_zk_zgrade.append(NAZIV_VRSTE_ZGRADE.text)
-
-#KREIRANJE DATAFRAMEOVA
-####################################################################################
-dataa = {"Posjedovni list broj":lista_posjedovni_list_broj_nacini_uporabe,
-        "Cestica id":lista_cestica_id_nacini_uporabe,
-        "Naziv vrste uporabe":lista_naziv_vrste_uporabe_nacini_uporabe,
-        "Povrsina":lista_povrsina_nacini_uporabe}
-dataframea = pd.DataFrame(dataa)
-
-datab = {"Cestica id":lista_cestica_id_cestice,
-         "Broj cestice":lista_broj_cestice_cestice,
-         "Adresa":lista_adresa_opisna_cestice}
-dataframeb = pd.DataFrame(datab)
-
-datac = {"Posjedovni list id":lista_posjedovni_list_id_posjedovni_listovi,
-        "Posjedovni list broj":lista_broj_posjedovni_listovi}
-dataframec = pd.DataFrame(datac)
-
-datad = {"Posjednik id":lista_posjednik_id_upisane_osobe,
-         "Posjedovni list id":lista_posjedovni_list_id_upisane_osobe,
-         "Posjednik udio brojnik":lista_posjednik_udio_brojnik_upisane_osobe,
-         "Posjednik udio nazivnik":lista_posjednik_udio_nazivnik_upisane_osobe,
-         "Naziv":lista_naziv_upisane_osobe,
-         "Naziv pravnog odnosa":lista_naziv_pravnog_odnosa_upisane_osobe,
-         "Porezni broj":lista_porezni_broj_upisane_osobe}
-dataframed = pd.DataFrame(datad)
-dataframed = dataframed.fillna("")
-
-datag = {"Posjednik id":lista_posjednik_id_adrese_upisanih_osoba,
-         "Drzava":lista_drzava_adrese_upisanih_osoba,
-         "Adresa opisna":lista_adresa_opisna_adrese_upisanih_osoba,
-         "Postanski broj":lista_postanski_broj_adrese_upisanih_osoba,
-         "Naselje":lista_naselje_adrese_upisanih_osoba,
-         "Ulica":lista_ulica_adrese_upisanih_osoba,
-         "Kucni broj":lista_kbr_adrese_upisanih_osoba}
-dataframeg = pd.DataFrame(datag)
-
-datae = {"Cestica id":lista_cestica_id_cestice_zgrade,
-        "Zgrada id":lista_zgrada_id_cestice_zgrade}
-dataframee = pd.DataFrame(datae)
-
-dataf = {"Zgrada id":lista_zgrada_id_zgrade,
-         "Posjedovni list broj":lista_posjedovni_list_broj_zgrade,
-         "Naziv vrste zgrade":lista_naziv_vrste_zgrade_zgrade,
-         "Povrsina":lista_povrsina_zgrade}
-dataframef = pd.DataFrame(dataf)
-dataframef = dataframef.fillna("")
-
-dataazk = {"Zk cestica id":lista_zk_cestica_id_zk_cestice,
-         "Broj cestice brojnik":lista_broj_cestice_zk_cestice,
-         "Podbroj cestice":lista_podbroj_cestice_zk_cestice,
-         "Ulozak id":lista_ulozak_id_zk_cestice,
-         "Povrsina":lista_povrsina_zk_cestice,
-         "Redni broj ZK tijela cestice":lista_rbr_zk_tijela_zk_cestice}
-dataframeazk = pd.DataFrame(dataazk)
-
-databzk = {"Ulozak id":lista_ulozak_id_ulosci,
-         "Broj uloska":lista_broj_uloska_ulosci}
-dataframebzk= pd.DataFrame(databzk)
-
-dataczk = {"Zk cestica id":lista_zk_cestica_id_zk_nacini_uporabe,
-           "Naziv vrste uporabe":lista_zk_naziv_vrste_uporabe_zk_nacini_uporabe,
-           "Povrsina vrste uporabe":lista_zk_povrsina_zk_nacini_uporabe}
-dataframeczk = pd.DataFrame(dataczk)
-
-datazzk = {"Zk cestica id":lista_zk_cestica_id_zk_adrese_cestice,
-           "Adresa opisna":lista_adresa_opisna_zk_adrese_cestice}
-dataframezzk = pd.DataFrame(datazzk)
-
-datadzk = {"Osoba upisa id":lista_osoba_upisa_id_zk_vlasnici,
-           "Udio brojnik":lista_udio_brojnik_zk_vlasnici,
-           "Udio nazivnik":lista_udio_nazivnik_zk_vlasnici,
-           "Udio dijela brojnik":lista_udio_dijela_brojnik_zk_vlasnici,
-           "Udio dijela nazivnik":lista_udio_dijela_nazivnik_zk_vlasnici,
-           "Redni broj etaze":lista_rbr_etaze_zk_vlasnici,
-           "Naziv":lista_naziv_zk_vlasnici,
-           "Ulozak id":lista_ulozak_id_zk_vlasnici,
-           "Porezni broj":lista_porezni_broj_zk_vlasnici,
-           "Redni broj ZK tijela vlasnika":lista_rbr_zk_tijela_zk_vlasnici}
-dataframedzk = pd.DataFrame(datadzk)
-
-dataezk = {"Osoba upisa id":lista_osoba_upisa_id_zk_adrese_vlasnika,
-           "Adresa":lista_adresa_opisna_zk_adrese_vlasnika}
-
-dataxzk = {"Zk cestica id":lista_zk_cestica_id_zk_zgrade,
-           "Povrsina zgrade":lista_povrsina_zk_zgrade,
-           "Naziv vrste zgrade":lista_naziv_vrste_zgrade_zk_zgrade}
-dataframexzk = pd.DataFrame(dataxzk)
-dataframeezk = pd.DataFrame(dataezk)
-dataframeezk = dataframeezk.fillna("")
-
-dataaz = {"Zgrada id":lista_zgrada_id_adrese_zgrade,
-          "Adresa opisna":lista_adresa_opisna_adrese_zgrade}
-dataframeaz = pd.DataFrame(dataaz)
-
-
-dataframed = dataframed.merge(dataframeg, on="Posjednik id", how="left")
-dataframed = dataframed.reset_index()
-
-
-dataframed = dataframed.merge(dataframec, on="Posjedovni list id", how = "left")
-
-dataframed['Omjer'] = ""
-dataframed["Sklopljeno"]=""
-dataframed["Adresa"]=""
-
-for i in range(0,len(dataframed["Posjedovni list id"])):
-    dataframed.at[i, "Omjer"] = str(dataframed.at[i, "Posjednik udio brojnik"]) + "/" + str(dataframed.at[i, "Posjednik udio nazivnik"])
-    if dataframed.at[i,"Adresa opisna"] != None and dataframed.at[i,"Naselje"] == None:
-        dataframed.at[i,"Adresa"] = dataframed.at[i,"Adresa opisna"]
-    elif dataframed.at[i,"Adresa opisna"] == None and dataframed.at[i,"Naselje"] != None and dataframed.at[i,"Postanski broj"] == None:
-        dataframed.at[i, "Adresa"] = dataframed.at[i, "Ulica"]+" "+str(dataframed.at[i, "Kucni broj"]) + ", " + dataframed.at[i, "Naselje"]+", "+dataframed.at[i, "Drzava"]
-    elif dataframed.at[i,"Adresa opisna"] == None and dataframed.at[i,"Naselje"] != None:
-        dataframed.at[i, "Adresa"] = dataframed.at[i, "Ulica"]+" "+str(dataframed.at[i, "Kucni broj"]) + ", " +dataframed.at[i, "Naselje"]+", "+dataframed.at[i, "Drzava"]
+class Dejtafrejm:
+    def __init__(self,put,*argv):
+        self.put = put
+        self.tree = etree.parse(file_path+"/"+self.put)
+        self.root = self.tree.getroot()
+        self.data = {}
+        for arg in argv:
+            setattr(self, "lista_"+arg.lower()+"_"+self.put[:-4].lower(), [])
+            for a in self.root.iter("{http://www.uredjenazemlja.hr}"+arg):
+                getattr(self, "lista_"+arg.lower()+"_"+self.put[:-4].lower()).append(a.text)
+            b = {arg.replace("_"," ").lower().capitalize():getattr(self, "lista_" + arg.lower() + "_" + self.put[:-4].lower())}
+            self.data.update(b)
+        self.dataframe = pd.DataFrame(self.data).fillna("")
+
+a = Dejtafrejm("NACINI_UPORABE.gml", "POSJEDOVNI_LIST_BROJ", "POVRSINA", "CESTICA_ID", "NAZIV_VRSTE_UPORABE")
+b = Dejtafrejm("CESTICE.gml", "CESTICA_ID", "BROJ_CESTICE", "ADRESA_OPISNA")
+c = Dejtafrejm("POSJEDOVNI_LISTOVI.gml", "POSJEDOVNI_LIST_ID", "BROJ")
+d = Dejtafrejm("UPISANE_OSOBE.gml", "POSJEDNIK_ID", "POSJEDOVNI_LIST_ID", "POSJEDNIK_ID","POSJEDOVNI_LIST_ID", "POSJEDNIK_UDIO_BROJNIK","POSJEDNIK_UDIO_NAZIVNIK","NAZIV","NAZIV_PRAVNOG_ODNOSA","POREZNI_BROJ")
+e = Dejtafrejm("CESTICE_ZGRADE.gml", "CESTICA_ID", "ZGRADA_ID")
+f = Dejtafrejm("ZGRADE.gml","ZGRADA_ID","POVRSINA","NAZIV_VRSTE_ZGRADE","POSJEDOVNI_LIST_BROJ")
+g = Dejtafrejm("ADRESE_UPISANIH_OSOBA.gml","POSJEDNIK_ID", "DRZAVA", "ADRESA_OPISNA", "POSTANSKI_BROJ", "NASELJE", "ULICA", "KBR")
+azk = Dejtafrejm("ZK_CESTICE.gml", "ZK_CESTICA_ID","BROJ_CESTICE","PODBROJ_CESTICE", "ULOZAK_ID", "POVRSINA", "RBR_ZK_TIJELA")
+bzk = Dejtafrejm("ULOSCI.gml", "ULOZAK_ID", "BROJ_ULOSKA")
+czk = Dejtafrejm("ZK_NACINI_UPORABE.gml", "ZK_CESTICA_ID", "NAZIV_VRSTE_UPORABE", "POVRSINA")
+zzk = Dejtafrejm("ZK_ADRESE_CESTICE.gml", "ADRESA_OPISNA", "ZK_CESTICA_ID")
+dzk = Dejtafrejm("ZK_VLASNICI.gml", "ULOZAK_ID", "OSOBA_UPISA_ID", "UDIO_DIJELA_BROJNIK", "UDIO_DIJELA_NAZIVNIK", "NAZIV", "ULOZAK_ID", "POREZNI_BROJ", "UDIO_BROJNIK", "UDIO_NAZIVNIK", "RBR_ETAZE", "RBR_ZK_TIJELA")
+ezk = Dejtafrejm("ZK_ADRESE_VLASNIKA.gml", "OSOBA_UPISA_ID", "ADRESA_OPISNA")
+eaz = Dejtafrejm("ADRESE_ZGRADE.gml", "ZGRADA_ID", "ADRESA_OPISNA")
+xzk = Dejtafrejm("ZK_ZGRADE.gml", "POVRSINA", "ZK_CESTICA_ID", "NAZIV_VRSTE_ZGRADE")
+
+#TRENUTNO RJESENJE ! ! ! treba srediti imena (nastalo kod prebacivanja na klasu umjesto špageta)
+b.dataframe = b.dataframe.rename(columns={"Adresa opisna": "Adresa"})
+c.dataframe = c.dataframe.rename(columns={"Broj": "Posjedovni list broj"})
+g.dataframe = g.dataframe.rename(columns={"Kbr": "Kucni broj"})
+azk.dataframe = azk.dataframe.rename(columns={"Broj cestice": "Broj cestice brojnik", "Rbr zk tijela":"Redni broj ZK tijela cestice"}) #ovaj brojnik pogotovo nema smisla ?!
+czk.dataframe = czk.dataframe.rename(columns={"Povrsina": "Povrsina vrste uporabe"})
+dzk.dataframe = dzk.dataframe.rename(columns={"Rbr etaze": "Redni broj etaze", "Rbr zk tijela": "Redni broj ZK tijela vlasnika"})
+ezk.dataframe = ezk.dataframe.rename(columns={"Adresa opisna": "Adresa"})
+xzk.dataframe = xzk.dataframe.rename(columns={"Povrsina": "Povrsina zgrade"})
+
+
+d.dataframe = d.dataframe.merge(g.dataframe, on="Posjednik id", how="left")
+d.dataframe = d.dataframe.reset_index()
+
+
+d.dataframe = d.dataframe.merge(c.dataframe, on="Posjedovni list id", how = "left")
+
+d.dataframe['Omjer'] = ""
+d.dataframe["Sklopljeno"]=""
+d.dataframe["Adresa"]=""
+
+for i in range(0,len(d.dataframe["Posjedovni list id"])):
+    d.dataframe.at[i, "Omjer"] = str(d.dataframe.at[i, "Posjednik udio brojnik"]) + "/" + str(d.dataframe.at[i, "Posjednik udio nazivnik"])
+    if d.dataframe.at[i,"Adresa opisna"] != None and d.dataframe.at[i,"Naselje"] == None:
+        d.dataframe.at[i,"Adresa"] = d.dataframe.at[i,"Adresa opisna"]
+    elif d.dataframe.at[i,"Adresa opisna"] == None and d.dataframe.at[i,"Naselje"] != None and d.dataframe.at[i,"Postanski broj"] == None:
+        d.dataframe.at[i, "Adresa"] = d.dataframe.at[i, "Ulica"]+" "+str(d.dataframe.at[i, "Kucni broj"]) + ", " + d.dataframe.at[i, "Naselje"]+", "+d.dataframe.at[i, "Drzava"]
+    elif d.dataframe.at[i,"Adresa opisna"] == None and d.dataframe.at[i,"Naselje"] != None:
+        d.dataframe.at[i, "Adresa"] = d.dataframe.at[i, "Ulica"]+" "+str(d.dataframe.at[i, "Kucni broj"]) + ", " +d.dataframe.at[i, "Naselje"]+", "+d.dataframe.at[i, "Drzava"]
     else:
         pass
 
-for i in range(0,len(dataframed["Posjedovni list id"])):
-    if str(dataframed.at[i,"Naziv pravnog odnosa"]) == "VLASNIK" and dataframed.at[i,"Porezni broj"] != "":
-        dataframed.at[i,"Sklopljeno"] =dataframed.at[i,"Naziv"]+", "+dataframed.at[i, "Adresa"]+", (Vlasnik), "+"OIB: "+str(dataframed.at[i,"Porezni broj"])
-    elif str(dataframed.at[i,"Naziv pravnog odnosa"]) == "VLASNIK" and dataframed.at[i,"Porezni broj"] == "" and dataframed.at[i,"Adresa"] != "":
-        dataframed.at[i,"Sklopljeno"] = dataframed.at[i,"Naziv"]+", "+dataframed.at[i, "Adresa"]+", (Vlasnik)"
-    elif str(dataframed.at[i,"Naziv pravnog odnosa"]) == "VLASNIK" and dataframed.at[i,"Porezni broj"] == "" and dataframed.at[i,"Adresa"] == "":
-        dataframed.at[i,"Sklopljeno"] = dataframed.at[i,"Naziv"]+", (Vlasnik)"
-    elif dataframed.at[i,"Porezni broj"] == "":
-        dataframed.at[i, "Sklopljeno"] = dataframed.at[i, "Naziv"] + ", " + dataframed.at[i, "Adresa"]
+for i in range(0,len(d.dataframe["Posjedovni list id"])):
+    if str(d.dataframe.at[i,"Naziv pravnog odnosa"]) == "VLASNIK" and d.dataframe.at[i,"Porezni broj"] != "":
+        d.dataframe.at[i,"Sklopljeno"] =d.dataframe.at[i,"Naziv"]+", "+d.dataframe.at[i, "Adresa"]+", (Vlasnik), "+"OIB: "+str(d.dataframe.at[i,"Porezni broj"])
+    elif str(d.dataframe.at[i,"Naziv pravnog odnosa"]) == "VLASNIK" and d.dataframe.at[i,"Porezni broj"] == "" and d.dataframe.at[i,"Adresa"] != "":
+        d.dataframe.at[i,"Sklopljeno"] = d.dataframe.at[i,"Naziv"]+", "+d.dataframe.at[i, "Adresa"]+", (Vlasnik)"
+    elif str(d.dataframe.at[i,"Naziv pravnog odnosa"]) == "VLASNIK" and d.dataframe.at[i,"Porezni broj"] == "" and d.dataframe.at[i,"Adresa"] == "":
+        d.dataframe.at[i,"Sklopljeno"] = d.dataframe.at[i,"Naziv"]+", (Vlasnik)"
+    elif d.dataframe.at[i,"Porezni broj"] == "":
+        d.dataframe.at[i, "Sklopljeno"] = d.dataframe.at[i, "Naziv"] + ", " + d.dataframe.at[i, "Adresa"]
     else:
-        dataframed.at[i, "Sklopljeno"] = dataframed.at[i, "Naziv"] + ", " + dataframed.at[i, "Adresa"] + ", " + "OIB: " + str(dataframed.at[i, "Porezni broj"])
+        d.dataframe.at[i, "Sklopljeno"] = d.dataframe.at[i, "Naziv"] + ", " + d.dataframe.at[i, "Adresa"] + ", " + "OIB: " + str(d.dataframe.at[i, "Porezni broj"])
 
-dataframeac = dataframee.merge(dataframef,on="Zgrada id",how="left")
-dataframeaz = dataframeaz.fillna("")
-dataframeac = dataframeac.merge(dataframeaz,on="Zgrada id",how="left")
+dataframeac = e.dataframe.merge(f.dataframe,on="Zgrada id",how="left")
+dataframeac = dataframeac.merge(eaz.dataframe,on="Zgrada id",how="left")
 dataframeac["Naziv vrste uporabe"]=""
 dataframeac = dataframeac.fillna("")
 
@@ -440,12 +93,13 @@ for i in range(0,len(dataframeac["Cestica id"])):
     else:
         dataframeac.at[i, "Naziv vrste uporabe"] = dataframeac.at[i, "Naziv vrste zgrade"]
 
-dataframeac = dataframeac.merge(dataframeb,on="Cestica id",how="left")
+dataframeac = dataframeac.merge(b.dataframe,on="Cestica id",how="left")
+dataframeac.to_excel(file_path+"/dataframeac.xlsx")
 dataframeac.drop(columns="Adresa opisna")
 dataframeac["Adresa"]=""
 dataframeac = dataframeac[["Posjedovni list broj","Cestica id","Naziv vrste uporabe","Povrsina","Broj cestice","Adresa"]]
 
-dataframeab = dataframea.merge(dataframeb,on="Cestica id",how="left")
+dataframeab = a.dataframe.merge(b.dataframe,on="Cestica id",how="left")
 dataframeab = dataframeab.append(dataframeac,ignore_index=True)
 dataframeab = dataframeab.sort_values(["Posjedovni list broj","Broj cestice"],ignore_index=True)
 
@@ -462,7 +116,7 @@ for z in range(0,len(dataframeab["Posjedovni list broj"])-1):
         j = 1
 
 
-dataframeab = dataframeab.merge(dataframed, on="Posjedovni list broj", how = "left")
+dataframeab = dataframeab.merge(d.dataframe, on="Posjedovni list broj", how = "left")
 dataframeab = dataframeab.sort_values(["Broj cestice","Posjedovni list broj","Naziv vrste uporabe"],ignore_index=True,ascending=[True,False,True])
 dataframeab = dataframeab[["Posjedovni list broj","Broj cestice","Naziv vrste uporabe","Omjer","Sklopljeno","Povrsina","Adresa_x"]]
 
@@ -508,41 +162,41 @@ dataframeab = dataframeab.dropna(subset=["Drop"])
 
 #######################################################################################################################################################
 
-dataframexzk = dataframexzk.merge(dataframeazk, on="Zk cestica id", how="left")
-dataframexzk = dataframexzk[["Zk cestica id","Broj cestice brojnik","Podbroj cestice","Ulozak id","Povrsina zgrade","Redni broj ZK tijela cestice","Naziv vrste zgrade"]]
-dataframeazk = dataframeazk.append(dataframexzk,ignore_index=True)
-dataframeazk = dataframeazk.merge(dataframezzk, on="Zk cestica id", how="left")
-dataframeabzk = dataframeazk.merge(dataframebzk, on="Ulozak id", how="left")
-dataframeabzk = dataframeabzk.merge(dataframeczk, on="Zk cestica id", how="outer")
-dataframedzk = dataframedzk.merge(dataframeezk, on= "Osoba upisa id", how = "left")
+xzk.dataframe = xzk.dataframe.merge(azk.dataframe, on="Zk cestica id", how="left")
+xzk.dataframe = xzk.dataframe[["Zk cestica id","Broj cestice brojnik","Podbroj cestice","Ulozak id","Povrsina zgrade","Redni broj ZK tijela cestice","Naziv vrste zgrade"]]
+azk.dataframe = azk.dataframe.append(xzk.dataframe,ignore_index=True)
+azk.dataframe = azk.dataframe.merge(zzk.dataframe, on="Zk cestica id", how="left")
+dataframeabzk = azk.dataframe.merge(bzk.dataframe, on="Ulozak id", how="left")
+dataframeabzk = dataframeabzk.merge(czk.dataframe, on="Zk cestica id", how="outer")
+dzk.dataframe = dzk.dataframe.merge(ezk.dataframe, on= "Osoba upisa id", how = "left")
 
 
-dataframedzk["Nazadr"] =""
-dataframedzk["Omjer"] =""
-dataframedzk = dataframedzk.fillna("")
+dzk.dataframe["Nazadr"] =""
+dzk.dataframe["Omjer"] =""
+dzk.dataframe = dzk.dataframe.fillna("")
 
-for i in range(0,len(dataframedzk["Osoba upisa id"])):
-    dataframedzk.at[i, "Omjer"] = str(dataframedzk.at[i, "Udio brojnik"]) + "/" + str(dataframedzk.at[i, "Udio nazivnik"])
-    if dataframedzk.at[i,"Porezni broj"] != "":
-        dataframedzk.at[i,"Nazadr"] = (dataframedzk.at[i,"Naziv"]+", "+ "OIB: "+dataframedzk.at[i,"Porezni broj"]+", "+str(dataframedzk.at[i,"Adresa"])).upper()
-    elif dataframedzk.at[i,"Porezni broj"] == "" and dataframedzk.at[i, "Adresa"] != "":
-        dataframedzk.at[i, "Nazadr"] = (dataframedzk.at[i, "Naziv"] +", "+ str(dataframedzk.at[i, "Adresa"])).upper()
+for i in range(0,len(dzk.dataframe["Osoba upisa id"])):
+    dzk.dataframe.at[i, "Omjer"] = str(dzk.dataframe.at[i, "Udio brojnik"]) + "/" + str(dzk.dataframe.at[i, "Udio nazivnik"])
+    if dzk.dataframe.at[i,"Porezni broj"] != "":
+        dzk.dataframe.at[i,"Nazadr"] = (dzk.dataframe.at[i,"Naziv"]+", "+ "OIB: "+dzk.dataframe.at[i,"Porezni broj"]+", "+str(dzk.dataframe.at[i,"Adresa"])).upper()
+    elif dzk.dataframe.at[i,"Porezni broj"] == "" and dzk.dataframe.at[i, "Adresa"] != "":
+        dzk.dataframe.at[i, "Nazadr"] = (dzk.dataframe.at[i, "Naziv"] +", "+ str(dzk.dataframe.at[i, "Adresa"])).upper()
     else:
-        dataframedzk.at[i, "Nazadr"] = str(dataframedzk.at[i, "Naziv"]).upper()
+        dzk.dataframe.at[i, "Nazadr"] = str(dzk.dataframe.at[i, "Naziv"]).upper()
 
-for i in range(0,len(dataframedzk["Osoba upisa id"])):
-    if  dataframedzk.at[i,"Redni broj etaze"] != "" and dataframedzk.at[i,"Udio dijela brojnik"] == "0" and dataframedzk.at[i,"Udio dijela nazivnik"] == "0":
-        dataframedzk.at[i, "Naziv"] = dataframedzk.at[i, "Omjer"] +" "+ dataframedzk.at[i, "Nazadr"]
-        dataframedzk.at[i,"Omjer"] = "(E-"+dataframedzk.at[i,"Redni broj etaze"]+") NEODREĐEN OMJER"
-    elif dataframedzk.at[i,"Redni broj etaze"] != "" and dataframedzk.at[i,"Udio dijela brojnik"] != "":
-        dataframedzk.at[i, "Naziv"] = dataframedzk.at[i, "Omjer"] +" "+ dataframedzk.at[i, "Nazadr"]
-        dataframedzk.at[i, "Omjer"] = dataframedzk.at[i,"Udio dijela brojnik"]+"/"+dataframedzk.at[i,"Udio dijela nazivnik"]+" ETAŽNO VLASNIŠTVO (E-"+dataframedzk.at[i,"Redni broj etaze"]+")"
+for i in range(0,len(dzk.dataframe["Osoba upisa id"])):
+    if  dzk.dataframe.at[i,"Redni broj etaze"] != "" and dzk.dataframe.at[i,"Udio dijela brojnik"] == "0" and dzk.dataframe.at[i,"Udio dijela nazivnik"] == "0":
+        dzk.dataframe.at[i, "Naziv"] = dzk.dataframe.at[i, "Omjer"] +" "+ dzk.dataframe.at[i, "Nazadr"]
+        dzk.dataframe.at[i,"Omjer"] = "(E-"+dzk.dataframe.at[i,"Redni broj etaze"]+") NEODREĐEN OMJER"
+    elif dzk.dataframe.at[i,"Redni broj etaze"] != "" and dzk.dataframe.at[i,"Udio dijela brojnik"] != "":
+        dzk.dataframe.at[i, "Naziv"] = dzk.dataframe.at[i, "Omjer"] +" "+ dzk.dataframe.at[i, "Nazadr"]
+        dzk.dataframe.at[i, "Omjer"] = dzk.dataframe.at[i,"Udio dijela brojnik"]+"/"+dzk.dataframe.at[i,"Udio dijela nazivnik"]+" ETAŽNO VLASNIŠTVO (E-"+dzk.dataframe.at[i,"Redni broj etaze"]+")"
     else:
-        dataframedzk.at[i,"Omjer"] = dataframedzk.at[i,"Udio dijela brojnik"]+"/"+dataframedzk.at[i,"Udio dijela nazivnik"]
-        dataframedzk.at[i,"Naziv"] =  dataframedzk.at[i,"Nazadr"]
+        dzk.dataframe.at[i,"Omjer"] = dzk.dataframe.at[i,"Udio dijela brojnik"]+"/"+dzk.dataframe.at[i,"Udio dijela nazivnik"]
+        dzk.dataframe.at[i,"Naziv"] =  dzk.dataframe.at[i,"Nazadr"]
 
-dataframedzk.to_excel(file_path+"/outputfinalnidzk.xlsx")
-dataframedzk = dataframedzk.sort_values(["Redni broj ZK tijela vlasnika"],ignore_index=True)
+dzk.dataframe.to_excel(file_path+"/outputfinalnidzk.xlsx")
+dzk.dataframe = dzk.dataframe.sort_values(["Redni broj ZK tijela vlasnika"],ignore_index=True)
 dataframeabzk=dataframeabzk.fillna("")
 
 for i in range(0,len(dataframeabzk["Zk cestica id"])):
@@ -577,7 +231,7 @@ for z in range(0,len(dataframeabzk["Ulozak id"])-1):
         j = 1
 
 
-dataframeabzk = dataframeabzk.merge(dataframedzk, on="Ulozak id", how="left")
+dataframeabzk = dataframeabzk.merge(dzk.dataframe, on="Ulozak id", how="left")
 dataframeabzk = dataframeabzk[["Broj uloska","Broj cestice","Omjer","Naziv","Naziv vrste uporabe","Povrsina vrste uporabe","Povrsina","Adresa opisna","Redni broj ZK tijela cestice","Redni broj ZK tijela vlasnika"]]
 
 i = 0
@@ -771,14 +425,6 @@ for row in wsb.iter_rows():
         cell.alignment = cell.alignment.copy(wrapText=True, horizontal="center", vertical="center")
 ws.save(file_path+"/masterpos.xlsx")
 wss.save(file_path+"/masterzk.xlsx")
-
-
-
-
-
-
-
-
 
 
 
