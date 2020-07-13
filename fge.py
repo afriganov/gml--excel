@@ -8,6 +8,8 @@ root = tk.Tk()
 root.withdraw()
 file_path = filedialog.askdirectory()
 
+#ove špagete treba u klase 
+
 treea = etree.parse(file_path+"/NACINI_UPORABE.gml")
 treeb = etree.parse(file_path+"/CESTICE.gml")
 treec = etree.parse(file_path+"/POSJEDOVNI_LISTOVI.gml")
